@@ -1,0 +1,40 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}{{ parent() }} | Membres du bureau{% endblock %}
+
+{% block stylesheet %}
+    <link rel="stylesheet" href="/assets/css/association.css">
+{% endblock %}
+
+{% block content %}
+    <header class="d-flex text-center justify-content-around align-items-center boardMembers-header">
+        <h1 class="title-light">Les membres du bureau</h1>
+    </header>
+    <section class="boardMembers-section">
+        <div class="boardMembers-title d-flex justify-content-center">
+            <img class="icon" src="/assets/images/chess_icon/king.svg" alt="Pièce d'échec">
+            <h2 class="text-center align-items-center title-dark">Bureau de l'association</h2>
+            <img class="icon" src="/assets/images/chess_icon/king.svg" alt="Pièce d'échec">
+        </div>
+        <div class="container-fluid">
+            <div class="row mx-0 my-4">
+                <div class="col-md-8 offset-md-2 d-flex flex-column flex-md-row justify-content-around align-items-center labels">
+                    <h3>Nom</h3>
+                    <h3>Prénom</h3>
+                    <h3>Statut</h3>
+                    <h3>Email</h3>
+                </div>
+            </div>
+            {% for boardMember in boardMembers %}
+                <div class="row mx-0 my-4">
+                    <div class="col-md-8 offset-md-2 d-flex flex-column flex-md-row justify-content-around align-items-center boardMembers">
+                        <p>{{ boardMember.lastname|capitalize }}</p>
+                        <p>{{ boardMember.firstname|capitalize }}</p>
+                        <p>{{ boardMember.status|capitalize }}</p>
+                        <p>{{ boardMember.email }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+{% endblock %}

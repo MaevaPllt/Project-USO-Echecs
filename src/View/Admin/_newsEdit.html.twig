@@ -1,0 +1,50 @@
+<form action="/news/edit" method="post">
+    <input type="hidden" name="id" value="{{ newsItem.id }}">
+    <button type="button" class="btn button-light my-3" data-toggle="modal"
+            data-target="#modalFormEdit{{ newsItem.id }}">
+        Modifier
+    </button>
+</form>
+<div class="modal fade" id="modalFormEdit{{ newsItem.id }}" tabindex="-1" role="dialog"
+     aria-labelledby="modalFormTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="modalFormLongTitle">Modifier une actualité</h3>
+                <button type="button" class="close closecover_image" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form id="news-form" class="add-form" method="post" action="/news/edit/{{ newsItem.id }}"
+                  enctype="multipart/form-data">
+                <div class="d-flex flex-column modal-body">
+                    {% if errors is not empty %}
+                        <ul class="text-danger">
+                            {% for error in errors %}
+                                <li>{{ error }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                    <label for="title">Titre</label>
+                    <input type="text" name="title" id="title" placeholder="Titre de l'actualité"
+                           value="{{ newsItem.title ?? '' }}" required>
+                    <label for="content">Article</label>
+                    <textarea name="content" id="content" cols="30" rows="10"
+                              placeholder="Contenu de l'article"
+                              required>{{ newsItem.content ?? '' }}</textarea>
+                    <label for="excerpt">Résumé</label>
+                    <textarea name="excerpt" id="excerpt" cols="30" rows="3"
+                              placeholder="Résumé de l'article"
+                              required>{{ newsItem.excerpt ?? '' }}</textarea>
+                    <label for="cover_image">Image</label>
+                    <input type="file" name="cover_image" id="cover_image">
+                    <form action="/news/edit" method="post">
+                        <input type="hidden" name="id" value="{{ newsItem.id }}">
+                        <button class="btn button-light edit">Modifier l'article</button>
+                    </form>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</div>

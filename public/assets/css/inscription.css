@@ -1,0 +1,91 @@
+.inscriptionHeader {
+    height: var(--header-height);
+    background: linear-gradient(var(--darken-image), var(--darken-image)), url("../images/header_inscription.jpg") no-repeat center fixed;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media screen and (max-width: 550px) {
+    .inscriptionHeader h1 {
+        font-size: calc(var(--h2-font-size) * 2);
+    }
+}
+
+.imageTitle {
+    padding-top: var(--spacing5);
+    padding-bottom: var(--spacing3);
+    display:flex;
+    justify-content:center;
+    align-items: center;
+}
+h2 {
+    text-align: center;
+    padding: var(--spacing);
+}
+
+h3 {
+    padding-bottom: var(--spacing2);
+}
+
+.image {
+    height: var(--icon-height);
+    padding-bottom: var(--spacing);
+}
+
+.inscriptionPrice {
+    background: url("../images/chess_pattern.jpg");
+    padding-bottom: var(--spacing4);
+}
+p {
+    font-weight: var(--bold);
+}
+
+.span {
+    position: absolute;
+    right: var(--spacing2);
+    font-weight: var(--bold);
+}
+
+.inscriptionForm {
+    background-color: var(--main-color);
+    padding-bottom: var(--spacing4);
+}
+
+label {
+    margin: var(--spacing) 0;
+    color: var(--light);
+}
+
+input, button{
+    margin-bottom: var(--spacing2);
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+}
+
+.form-control:focus {
+    border-color: transparent;
+    box-shadow: none;
+    border-bottom: 3px solid var(--highlight);
+}
+
+.errors {
+    color: var(--highlight);
+}
+
+.card {
+    background-color: var(--light);
+    margin-top: var(--spacing4);
+}
+.link {
+    text-align: right;
+}
+.link a {
+    text-decoration: none;
+}
+
+

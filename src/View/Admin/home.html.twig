@@ -1,0 +1,50 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}{{ parent() }} | Admin{% endblock %}
+
+{% block stylesheet %}
+    <link rel="stylesheet" href="/assets/css/adminHome.css">
+{% endblock %}
+{% block header %}
+    {% include 'includes/_adminNavbar.html.twig' %}
+{% endblock %}
+
+{% block content %}
+    <header class="d-flex text-center justify-content-around align-items-center admin-header">
+        <h1 class="title-dark">Espace administrateur</h1>
+    </header>
+    <section>
+        <div class="container-fluid">
+            <div class="row justify-content-around mx-0">
+                <div class="card d-flex justify-content-between">
+                    <img src="/assets/images/admin_news_card.jpg" alt="Actualités">
+                    <div class="card-body d-flex flex-column justify-content-center">
+                        <h2 class="card-title">Actualités</h2>
+                        <a class="btn button-light" href="/news/admin">Gérer les actualités</a>
+                    </div>
+                </div>
+                <div class="card d-flex justify-content-between">
+                    <img src="/assets/images/admin_competition_card.jpg" alt="Compétitions">
+                    <div class="card-body d-flex flex-column justify-content-center">
+                        <h2 class="card-title">Compétitions</h2>
+                        <a class="btn button-light" href="/adminCompetition/index">Gérer les compétitions</a>
+                    </div>
+                </div>
+                <div class="card d-flex justify-content-between">
+                    <img src="/assets/images/admin_members_card.jpg" alt="Membres">
+                    <div class="card-body d-flex flex-column justify-content-center">
+                        <h2 class="card-title">Membres</h2>
+                        <a class="btn button-light" href="/admin/members">Gérer les membres</a>
+                    </div>
+                </div>
+                <div class="card d-flex justify-content-between">
+                    <img src="/assets/images/admin_partners_card.jpg" alt="Partenaires">
+                    <div class="card-body d-flex flex-column justify-content-center">
+                        <h2 class="card-title">Partenaires</h2>
+                        <a class="btn button-light" href="/admin/partners">Gérer les partenaires</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

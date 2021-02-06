@@ -1,0 +1,89 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}{{ parent() }} | Admin | Actualités{% endblock %}
+
+{% block stylesheet %}
+    <link rel="stylesheet" href="/assets/css/newsAdmin.css">
+{% endblock %}
+
+{% block header %}
+    {% include 'includes/_adminNavbar.html.twig' %}
+{% endblock %}
+
+{% block content %}
+    <section>
+        <div class="text-center title">
+            <h1>Actualités - administration</h1>
+        </div>
+        <div class="container news-add">
+            <button type="button" class="btn button-light my-4" data-toggle="modal" data-target="#modalForm">
+                Ajouter une actualité
+            </button>
+            <div class="modal fade" id="modalForm" tabindex="-1" role="dialog"
+                 aria-labelledby="modalFormTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3 class="modal-title" id="modalFormLongTitle">Ajouter une actualité</h3>
+                            <button type="button" class="close closecover_image" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <form id="news-form" class="add-form" method="post" action="/news/add"
+                              enctype="multipart/form-data">
+                            <div class="d-flex flex-column modal-body">
+                                {% if errors is not empty %}
+                                    <ul class="text-danger">
+                                        {% for error in errors %}
+                                            <li>{{ error }}</li>
+                                        {% endfor %}
+                                    </ul>
+                                {% endif %}
+                                <label for="title">Titre</label>
+                                <input type="text" name="title" id="title" placeholder="Titre de l'actualité"
+                                       value="{{ newsData.title ?? '' }}" required>
+                                <label for="content">Article</label>
+                                <textarea name="content" id="content" cols="30" rows="10"
+                                          placeholder="Contenu de l'article"
+                                          required>{{ newsData.content ?? '' }}</textarea>
+                                <label for="excerpt">Résumé</label>
+                                <textarea name="excerpt" id="excerpt" cols="30" rows="3"
+                                          placeholder="Résumé de l'article"
+                                          required>{{ newsData.excerpt ?? '' }}</textarea>
+                                <label for="cover_image">Image</label>
+                                <input type="file" name="cover_image" id="cover_image" required>
+                                <button class="btn button-light">Publier l'article</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+            {% for newsItem in news %}
+                <div class="container news-item">
+                    <div class="d-flex flex-wrap justify-content-between align-items-center">
+                        <div class="col-md-4 col-sm-8 offset-lg-1 article-link">
+                            <a href="/news/show/{{ newsItem.id }}" class="view">{{ newsItem.title }}</a>
+                        </div>
+                        <div class="col-md-4 col-8 offset-lg-1 d-flex justify-content-around buttons">
+                            <div class="edit-form">
+                                {% include 'Admin/_newsEdit.html.twig' %}
+
+                            <form action="/news/delete" method="post">
+                                <input type="hidden" name="id" value="{{ newsItem.id }}">
+                                <button class="btn button-light my-3 delete">Supprimer</button>
+                            </form>
+                            </div>
+                        </div>
+                        <hr>
+                    </div>
+                </div>
+            {% endfor %}
+    </section>
+{% endblock %}
+
+{% block javascript %}
+{% if errors is not empty %}
+<script src="/assets/js/openModal.js"></script>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,57 @@
+section {
+    margin-top: var(--spacing5);
+}
+
+.title h1 {
+    font-size: var(--h2-font-size);
+}
+
+.title, .partners-add {
+    margin-top: var(--spacing3);
+    margin-bottom: var(--spacing3);
+}
+
+.partners_list {
+    margin-top: var(--spacing2);
+}
+
+.partners-link {
+    border: none;
+    background-color: transparent;
+    color: var(--main-color);
+}
+
+.info-partner {
+    margin: var(--spacing2);
+}
+
+.partners-add button {
+    background-color: var(--main-color);
+}
+
+.partners-add button:hover {
+    background-color: var(--second-color);
+}
+
+.partners-add button.close {
+    background-color: transparent;
+    opacity: 1;
+}
+
+.form label, .form button {
+    font-weight: var(--bold);
+    margin-top: var(--spacing2);
+}
+
+span {
+    color: var(--main-color);
+}
+
+.buttons button {
+    margin: var(--spacing);
+}
+
+img {
+    --width-logo-partners: 450px;
+    max-width: var(--width-logo-partners);
+}

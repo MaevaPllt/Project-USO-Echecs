@@ -1,0 +1,27 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}{{ parent() }} | Actualités{% endblock %}
+
+{% block stylesheet %}
+    <link rel="stylesheet" href="/assets/css/news.css">
+{% endblock %}
+
+{% block content %}
+    <header class="d-flex text-center justify-content-around align-items-center news-header">
+        <h1 class="title-light">Actualités</h1>
+    </header>
+
+    <section class="container-fluid news">
+        <div class="text-center news-title">
+            <h2>{{ newsItem.title }}</h2>
+        </div>
+        <div class="row d-flex justify-content-center align-items-center no-gutters news-content">
+            <div class="col-lg-4 col-sm-8 col-10 news-text">
+                <p>{{ newsItem.content }}</p>
+            </div>
+            <div class="col-lg-4 col-sm-8 offset-lg-1 image-news">
+                <img class="cover-image" src="/uploads/{{ newsItem.cover_image }}" alt="Actualité">
+            </div>
+        </div>
+    </section>
+{% endblock %}

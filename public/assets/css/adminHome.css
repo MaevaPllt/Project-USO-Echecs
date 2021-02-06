@@ -1,0 +1,21 @@
+.admin-header h1 {
+    margin: var(--spacing5) 0 var(--spacing5) 0;
+}
+
+@media screen and (max-width: 550px) {
+    .admin-header h1 {
+        font-size: calc(var(--h2-font-size) * 2);
+    }
+}
+
+.card img {
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
+}
+
+.card, .card a {
+    margin: var(--spacing2) 0 var(--spacing2) 0;
+}
+
+section {
+    margin-bottom: var(--spacing4);
+}

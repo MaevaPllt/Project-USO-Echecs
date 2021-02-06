@@ -1,0 +1,29 @@
+{% extends 'layout.html.twig' %}
+
+{% block stylesheet %}
+    <link rel="stylesheet" href="/assets/css/news.css">
+{% endblock %}
+
+{% block content %}
+    <header class="d-flex text-center justify-content-center align-items-center news-header-large">
+        <h1 class="title-light">Actualités</h1>
+    </header>
+    <section class="news-cards">
+        <h2 class="title-light">Nos actualités</h2>
+        <div class="container-fluid">
+            <div class="row justify-content-around">
+                {% for newsData in news %}
+                    <div class="card col-12 col-sm-8 col-md-5 col-lg-3">
+                        <img src="/uploads/{{ newsData.cover_image }}" alt="Image actualité" class="card-img-top">
+                        <div class="card-body">
+                            <h3 class="card-title">{{ newsData.title }}</h3>
+                            <p class="card-position icon-before-position">{{ newsData.excerpt }}</p>
+                            <a href="/news/show/{{ newsData.id }}" class="btn btn-primary button-light">En savoir
+                                plus</a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+{% endblock %}

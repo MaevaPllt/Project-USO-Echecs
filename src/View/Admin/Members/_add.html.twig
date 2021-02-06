@@ -1,0 +1,64 @@
+<button type="button" class="btn button-light" data-toggle="modal"
+        data-target="#modalFormAdd{{ member.id }}">
+    Ajouter un membre
+</button>
+<div class="my-3">
+    <a href="/admin/acceptMembers" class="btn button-light">Voir les membres en attente de validation</a>
+</div>
+<div class="modal fade" id="modalFormAdd{{ member.id }}" tabindex="-1" role="dialog"
+     aria-labelledby="modalFormTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="modalFormLongTitle">Ajouter un membre</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form id="members-form" class="form" method="post" action="/admin/addMemberAdmin">
+                <div class="d-flex flex-column modal-body text-left">
+                    {% if errorsAdd is not empty %}
+                        <ul class="text-danger">
+                            {% for error in errorsAdd %}
+                                <li>{{ error }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                    <label for="inputFirstname">Prénom</label>
+                    <input type="text" id="inputFirstname" class="form-control" name="firstname"
+                           placeholder="Martin" value="{{ data.firstname ?? '' }}" required>
+                    <label for="inputLastname">Nom</label>
+                    <input type="text" id="inputLastname" class="form-control" name="lastname"
+                           placeholder="Paul" value="{{ data.lastname ?? '' }}" required>
+                    <label for="inputStatus">Status (optionnel)</label>
+                    <input type="text" id="inputStatus" class="form-control"
+                           name="status"
+                           placeholder="Président"
+                           value="{{ data.status ?? '' }}">
+                    <label for="inputEmail">Email</label>
+                    <input type="email" id="inputEmail" class="form-control" name="email"
+                           placeholder="paul.martin@email.com" value="{{ data.email ?? '' }}"
+                           required>
+                    <label for="inputPhone">Numéro de téléphone</label>
+                    <input type="tel" id="inputPhone" class="form-control" name="phone"
+                           placeholder="0601020304" value="{{ data.phone ?? '' }}" required>
+                    <label for="inputBirthday">Date de naissance</label>
+                    <input type="date" id="inputBirthday" class="form-control" name="birthday"
+                           min="1920-01-01" max="2015-01-05" value="{{ data.birthday ?? '' }}"
+                           required>
+                    <label for="inputAddress">Adresse</label>
+                    <input type="text" id="inputAddress" class="form-control" name="address"
+                           placeholder="2 rue du clos" value="{{ data.address ?? '' }}" required>
+                    <label for="inputPostalCode">Code Postal</label>
+                    <input type="text" id="inputPostalCode" class="form-control" name="postal_code"
+                           placeholder="45000" value="{{ data.postal_code ?? '' }}" required>
+                    <label for="inputCity">Ville</label>
+                    <input type="text" id="inputCity" class="form-control" name="city"
+                           placeholder="Orléans" value="{{ data.city ?? '' }}" required>
+                    <input type="hidden" name="is_validate" value=1>
+                    <button class="btn button-light modal-button">Ajouter le membre</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,126 @@
+:root {
+    --competition-image-height: 300px;
+}
+.competition-header {
+    height: var(--header-height);
+    background: linear-gradient(var(--darken-image), var(--darken-image)), url("../images/header_competition.jpg") no-repeat center fixed;
+    background-size: contain, cover;
+    width: 100%;
+}
+
+@media screen and (max-width: 550px) {
+    .competition-header h1 {
+        font-size: calc(var(--h2-font-size) * 2);
+    }
+}
+
+.competition-picture {
+    box-shadow: var(--box-shadow);
+    border-radius: var(--border-radius);
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.competitions h2 {
+    padding-top: var(--spacing5);
+    padding-bottom: var(--spacing5);
+    color: var(--main-color);
+    text-align: center;
+}
+
+.competition-description h3 {
+    margin-bottom: var(--spacing3);
+}
+
+.competition-img, .archive-img {
+    width: 100%;
+    display: block;
+    max-height: var(--competition-image-height);
+    object-fit: cover;
+}
+
+.competitions .row:nth-child(2n) {
+    flex-direction: row-reverse;
+}
+
+.competition-block {
+    margin-bottom: var(--spacing4);
+}
+
+.competition-description {
+    padding: 0;
+}
+
+.icon-before-date:before {
+    content: url("/assets/images/icon_date.png");
+    position: relative;
+    top: var(--spacing);
+    margin-right: var(--spacing);
+}
+
+.icon-before-position:before {
+    content: url("/assets/images/icon_adresse.png");
+    position: relative;
+    top: var(--spacing);
+    margin-right: var(--spacing);
+}
+
+.archive {
+    text-align: center;
+    background-color: var(--main-color);
+    padding: var(--spacing4) var(--spacing3);
+}
+
+.archive h2 {
+    padding-top: var(--spacing2);
+    padding-bottom: var(--spacing4);
+    color: var(--light);
+    text-align: center;
+}
+
+.card p, h3 {
+    text-align: left;
+}
+
+.card h3 {
+    margin-bottom: var(--spacing2);
+}
+
+.card {
+    background: var(--light);
+    opacity: 0.9;
+    border: none;
+    box-shadow: var(--box-shadow);
+    margin-bottom: var(--spacing4);
+    padding-left: 0;
+    padding-right: 0;
+    margin-right: var(--spacing);
+    margin-left: var(--spacing);
+}
+
+.archive .btn {
+    margin-top: var(--spacing2);
+}
+
+.ranking-title {
+    font-size: var(--h1-font-size);
+    text-align: center;
+    padding: var(--spacing4) 0;
+}
+
+.ranking-table {
+    margin-bottom: var(--spacing5);
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    width: 80%;
+}
+.ranking-table th {
+    padding-top: var(--spacing2);
+    padding-bottom: var(--spacing2);
+}
+
+.ranking-table td {
+    color: var(--main-color);
+}
+

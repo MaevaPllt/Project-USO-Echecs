@@ -1,0 +1,56 @@
+section {
+    margin-top: var(--spacing5);
+}
+
+.title h1 {
+    font-size: var(--h2-font-size);
+}
+
+.title, .competitions-add {
+    margin-top: var(--spacing3);
+    margin-bottom: var(--spacing3);
+}
+
+.competition-button-add {
+    margin-bottom: var(--spacing3);
+}
+
+.competition-description h3 {
+    margin-bottom: var(--spacing2);
+}
+
+.competition-button-delete {
+    margin-bottom: var(--spacing4);
+}
+
+.competition-button-update {
+    margin-right: var(--spacing);
+}
+
+.competitions img {
+    width: 100%;
+    display: block;
+}
+
+.modal-body input {
+    width: 100%;
+}
+
+.modal-body li {
+    color: red;
+}
+
+span {
+    color: var(--main-color);
+}
+
+.form label, .form button {
+    font-weight: var(--bold);
+    margin-top: var(--spacing2);
+}
+
+button.close {
+    background-color: transparent;
+    border-style: none;
+    opacity: 1;
+}

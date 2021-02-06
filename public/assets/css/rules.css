@@ -1,0 +1,91 @@
+.rules-header {
+    height: var(--header-height);
+    background: linear-gradient(var(--darken-image), var(--darken-image)), url("../images/header_rules.jpg") no-repeat center fixed;
+    background-size: cover;
+}
+
+.rules-title, h3 {
+    text-align: center;
+    margin-top: var(--spacing);
+    margin-bottom: var(--spacing4);
+    padding-top: var(--spacing4);
+}
+
+.title-size {
+    margin-bottom: var(--spacing3);
+    font-size: var(--h4-font-size);
+    font-weight: var(--bold);
+}
+
+.icon {
+    height: var(--icon-height);
+    padding-bottom: var(--spacing);
+}
+
+.equipment-section {
+    background: url(../images/chess_pattern.jpg);
+}
+
+.progress-section {
+    background: url(../images/chess_pattern.jpg);
+    padding-top: var(--spacing4);
+    padding-bottom: var(--spacing4);
+}
+
+.progress-section h4 {
+    margin-top: var(--spacing4);
+}
+
+.presentation-text {
+    margin-bottom: var(--spacing3);
+    line-height: 200%;
+}
+
+.presentation_rules {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.img-drawing {
+    margin-top: var(--spacing3);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    display: block;
+    max-width: 100%;
+}
+
+.rules-section, .shifting-section {
+    background-color: var(--main-color);
+    color: var(--light);
+    padding-top: var(--spacing4);
+}
+
+.rules-section {
+    padding-bottom: var(--spacing4);
+}
+
+.little-section {
+    border-bottom: solid 1px;
+    padding-top: var(--spacing3);
+    padding-bottom: var(--spacing4);
+}
+
+.material-section {
+    border-bottom: none;
+}
+
+.abstract {
+    text-align: center;
+    margin-bottom: var(--spacing4);
+}
+
+span {
+    font-weight: var(--bold);
+}
+
+.checkmate {
+    margin-top: var(--spacing3);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    max-width: 100%;
+}

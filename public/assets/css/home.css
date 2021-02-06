@@ -1,0 +1,116 @@
+:root {
+    --carousel-height: 640px;
+    --competition-image-height: 300px;
+}
+
+.home-header {
+    height: var(--header-height);
+    background: linear-gradient(var(--darken-image), var(--darken-image)), url("../images/header_accueil.jpg") no-repeat center fixed;
+    background-size: contain, cover;
+    width: 100%;
+}
+
+.presentation {
+    background: url("../images/chess_pattern.jpg");
+    background-size: cover;
+    padding: var(--spacing5) 0;
+}
+
+.image-presentation {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.presentation img {
+    --height-image-presentation: 500px;
+    height: var(--height-image-presentation);
+}
+
+.presentation img, .competitions img {
+    display: block;
+    max-width: 100%;
+}
+
+.presentation-text {
+    margin-bottom: var(--spacing3);
+    line-height: 200%;
+}
+
+.presentation h2 {
+    margin-bottom: var(--spacing2);
+}
+
+.presentation h2:before {
+    content: url("../images/chess-knight-small.png");
+}
+
+.presentation img {
+    box-shadow: var(--box-shadow);
+    object-fit: cover;
+}
+
+.carousel-item > img {
+    height: var(--carousel-height);
+    object-fit: cover;
+}
+
+.carousel-item:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--darken-image);
+}
+
+.carousel-caption {
+    margin-bottom: var(--spacing2);
+}
+
+.icon-before-date:before {
+    content: url("/assets/images/icon_date.png");
+    position: relative;
+    top: var(--spacing);
+    margin-right: var(--spacing);
+}
+
+.icon-before-position:before {
+    content: url("/assets/images/icon_adresse.png");
+    position: relative;
+    top: var(--spacing);
+    margin-right: var(--spacing);
+}
+
+.competitions {
+    text-align: center;
+    background-color: var(--main-color);
+    padding: var(--spacing4) var(--spacing3);
+}
+
+.card p, .card h3 {
+    text-align: left;
+}
+
+.competitions h2 {
+    margin-bottom: var(--spacing4);
+}
+
+.card h3 {
+    margin-bottom: var(--spacing2);
+}
+
+.card {
+    background: var(--light);
+    opacity: 0.9;
+    border: none;
+    box-shadow: var(--box-shadow);
+    margin-bottom: var(--spacing4);
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.card img {
+    max-height: var(--competition-image-height);
+    object-fit: cover;
+}

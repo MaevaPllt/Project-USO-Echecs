@@ -1,0 +1,55 @@
+section {
+    margin-top: var(--spacing5);
+}
+
+.title h1 {
+    font-size: var(--h2-font-size);
+}
+
+.title, .news-add {
+    margin-top: var(--spacing3);
+    margin-bottom: var(--spacing3);
+}
+
+.news-item {
+    margin-top: var(--spacing2);
+}
+
+.view {
+    color: var(--main-color);
+}
+
+.edit, .delete {
+    margin-left: var(--spacing2);
+}
+
+.news-add button {
+    background-color: var(--main-color);
+}
+
+.news-add button:hover {
+    background-color: var(--second-color);
+}
+
+.add-form label, .add-form button {
+    font-weight: var(--bold);
+    margin-top: var(--spacing2);
+}
+
+span {
+    color: var(--main-color);
+}
+
+.buttons a {
+    margin: var(--spacing) 0 var(--spacing);
+}
+
+.article-link a {
+    margin-top: var(--spacing);
+}
+
+button.close {
+    background-color: transparent;
+    border-style: none;
+    opacity: 1;
+}

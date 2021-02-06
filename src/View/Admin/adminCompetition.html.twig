@@ -1,0 +1,182 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}{{ parent() }} | Admin | Compétitions{% endblock %}
+
+{% block stylesheet %}
+    <link rel="stylesheet" href="/assets/css/admin.css">
+{% endblock %}
+
+{% block header %}
+    {% include 'includes/_adminNavbar.html.twig' %}
+{% endblock %}
+
+{% block content %}
+    <section class="competitions">
+        <div class="text-center title">
+            <h1>Compétitions - administration</h1>
+        </div>
+        <div class="container">
+            <div class="row mx-0 competitions-add">
+                <button type="button" class="btn button-light my-4" data-toggle="modal"
+                        data-target="#modalForm{{ competition.id }}">
+                    Ajouter une compétition
+                </button>
+                <div>
+                    <div class="modal fade" id="modalForm{{ competition.id }}" tabindex="-1" role="dialog"
+                         aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h3 class="modal-title" id="exampleModalLongTitle">
+                                        Ajouter une nouvelle compétition
+                                    </h3>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form class="form" action="/AdminCompetition/add" method="post"
+                                          enctype="multipart/form-data">
+                                        <input type="hidden" name="id" value="{{ competition.id }}">
+                                        <ul>
+                                            {% for error in errors %}
+                                                <li>{{ error }}</li>
+                                            {% endfor %}
+                                        </ul>
+                                        <label for="picture">Image</label>
+                                        <input type="file" name="picture" id="picture">
+                                        <label for="title">Titre</label>
+                                        <input type="text" name="name" id="title">
+                                        <label for="content">Contenu</label>
+                                        <input type="text" name="description" id="content">
+                                        <label for="date">Date</label>
+                                        <input type="date" name="date" id="date">
+                                        <label for="address">Adresse</label>
+                                        <input type="text" name="address" id="address">
+                                        <button type="submit" class="btn button-light mx-2">Ajouter</button>
+                                        <button type="button" class="btn btn-secondary mx-2" data-dismiss="modal">
+                                            Fermer
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% for competition in competitions %}
+                <div class="competition-block row mx-0 justify-content-center">
+                    <div class="competition-picture col-12 mb-4 col-lg-4 mb-lg-5">
+                        <img class="competition-img" src="/uploads/{{ competition.picture }}" alt="Image archive">
+                    </div>
+                    <div class="competition-description col-12 mb-4 col-lg-5">
+                        <h3 class="card-title">{{ competition.name }}</h3>
+                        <p class="competition-text">{{ competition.description }}</p>
+                        <p class="competition-date icon-before-date">{{ competition.date|date("d / m / Y") }}</p>
+                        <p class="competition-position icon-before-position">{{ competition.address }}</p>
+                    </div>
+                    <div class="competition-button-update">
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn button-light" data-toggle="modal"
+                                data-target="#modalForm{{ competition.id }}">
+                            Modifier
+                        </button>
+                    </div>
+                    <form class="competition-button-delete offset-1 offset-lg-0" action="/AdminCompetition/delete"
+                          method="post">
+                        <div>
+                            <input type="hidden" name="id" value="{{ competition.id }}">
+                            <button class="btn button-light">Supprimer</button>
+                        </div>
+                    </form>
+                </div>
+                <div>
+                    <!-- Modal -->
+                    <div class="modal fade" id="modalForm{{ competition.id }}" tabindex="-1" role="dialog"
+                         aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLongTitle">{{ competition.name }}</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form class="form" action="/AdminCompetition/update/{{ competition.id }}"
+                                          method="post"
+                                          enctype="multipart/form-data">
+                                        <input type="hidden" name="id" value="{{ competition.id }}">
+                                        <label for="picture">Image</label>
+                                        <input type="file" name="picture" id="picture">
+                                        <label for="name">Titre</label>
+                                        <input type="text" name="name" id="name" value="{{ competition.name }}">
+                                        <label for="description">Contenu</label>
+                                        <input type="text" name="description" id="description"
+                                               value="{{ competition.description }}">
+                                        <label for="date">Date</label>
+                                        <input type="date" name="date" id="date" value="{{ competition.date }}">
+                                        <label for="address">Adresse</label>
+                                        <input type="text" name="address" id="address"
+                                               value="{{ competition.address }}">
+                                        <button type="submit" class="btn btn-primary button-light mx-2">Appliquer
+                                        </button>
+                                        <button type="button" class="btn btn-secondary button-light mx-2"
+                                                data-dismiss="modal">Fermer
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="modal fade" id="modalForm{{ competition.id }}" tabindex="-1" role="dialog"
+                         aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h3 class="modal-title" id="exampleModalLongTitle">{{ competition.name }}</h3>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form class="form" action="/AdminCompetition/update/{{ competition.id }}"
+                                          method="post"
+                                          enctype="multipart/form-data">
+                                        <input type="hidden" name="id" value="{{ competition.id }}">
+                                        <label for="picture">Image</label>
+                                        <input type="file" name="picture" id="picture">
+                                        <label for="name">Titre</label>
+                                        <input type="text" name="name" id="name" value="{{ competition.name }}">
+                                        <label for="description">Contenu</label>
+                                        <input type="text" name="description" id="description"
+                                               value="{{ competition.description }}">
+                                        <label for="date">Date</label>
+                                        <input type="date" name="date" id="date" value="{{ competition.date }}">
+                                        <label for="address">Adresse</label>
+                                        <input type="text" name="address" id="address"
+                                               value="{{ competition.address }}">
+                                        <button type="submit" class="btn btn-primary mx-2 button-light">Appliquer
+                                        </button>
+                                        <button type="button" class="btn btn-secondary mx-2 button-light"
+                                                data-dismiss="modal">Fermer
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+{% endblock %}
+
+{% block javascript %}
+{% if errors is not empty %}
+<script src="/assets/js/openModal.js"></script>
+{% endif %}
+{% endblock %}

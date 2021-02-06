@@ -1,0 +1,31 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}{{ parent() }} | Partenaires{% endblock %}
+
+{% block stylesheet %}
+    <link rel="stylesheet" href="/assets/css/association.css">
+{% endblock %}
+
+{% block content %}
+    <header class="d-flex text-center justify-content-around align-items-center partner-header">
+        <h1 class="title-light">Les partenaires</h1>
+    </header>
+    <section class="partners-section">
+        <div class="partners-title d-flex justify-content-center">
+            <img class="icon" src="/assets/images/chess_icon/chess-knight.svg" alt="Pièce d'échec">
+            <h2 class="text-center align-items-center title-dark">Nos différents partenaires</h2>
+            <img class="icon" src="/assets/images/chess_icon/chess-knight-reverse.png" alt="Pièce d'échec">
+        </div>
+        <div class="container-fluid">
+            <div class="row mx-0 align-items-center justify-content-center partners">
+                {% for partner in partners %}
+                    <div class="col-md-6 col-lg-4 d-flex justify-content-center my-3">
+                        <a href="{{ partner.url }}" target="_blank">
+                            <img src="/uploads/{{ partner.image }}" alt="logo {{ partner.name }}">
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+{% endblock %}

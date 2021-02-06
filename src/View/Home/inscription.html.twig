@@ -1,0 +1,106 @@
+{% extends 'layout.html.twig' %}
+{% block title %}{{ parent() }} | Inscription{% endblock %}
+{% block stylesheet %}
+    <link rel="stylesheet" href="/assets/css/inscription.css">{% endblock %}
+{% block content %}
+    <header class="inscriptionHeader">
+        <h1 class="title-light text-center">Tarifs et inscription</h1>
+    </header>
+    <section class="inscriptionPrice">
+        <div class="imageTitle">
+            <img class="image" src="/assets/images/chess_icon/chess-pawn.svg" alt="Tour échec">
+            <h2 class="title-dark text-center">Tarifs</h2>
+            <img class="image" src="/assets/images/chess_icon/chess-pawn.svg" alt="Tour échec">
+        </div>
+        <div class="row p-0 col-md-9 mx-auto d-flex justify-content-around">
+            {% for key, license in licenses %}
+                <div class="card col-md-4">
+                    <div class="card-body">
+                        <h3 class="card-title text-center">{{ key }}</h3>
+                        {% for category in license %}
+                            <p class="card-text">{{ category.category }}</p>
+                            <ul>
+                                <li>{{ category.rate }}<span class="span">{{ category.price }} €</span></li>
+                            </ul>
+                        {% endfor %}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+    <section class="inscriptionForm">
+        <form action="" method="post">
+            <div class="imageTitle">
+                <img class="image" src="/assets/images/chess_icon/chess-pieces.svg" alt="Tour échec">
+                <h2 class="title-light text-center">Inscription</h2>
+                <img class="image" src="/assets/images/chess_icon/chess-pieces.svg" alt="Tour échec">
+            </div>
+            <div class="row mx-0">
+                <div class="col-md-6 offset-md-3">
+                    {% for error in errors %}
+                        <p class="errors">{{ error }}</p>
+                    {% endfor %}
+                </div>
+                <div class="col-md-6 offset-md-3">
+                    <div class="form-group">
+                        <label for="inputFirstname">Prénom</label>
+                        <input type="text" id="inputFirstname" class="form-control" name="firstname"
+                               placeholder="Martin" value="{{ data.firstname ?? '' }}" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputLastname">Nom</label>
+                        <input type="text" id="inputLastname" class="form-control" name="lastname"
+                               placeholder="Paul" value="{{ data.lastname ?? '' }}" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputEmail">Email</label>
+                        <input type="email" id="inputEmail" class="form-control" name="email"
+                               placeholder="paul.martin@email.com" value="{{ data.email ?? '' }}" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPhone">Numéro de téléphone</label>
+                        <input type="tel" id="inputPhone" class="form-control" name="phone"
+                               placeholder="0601020304" value="{{ data.phone ?? '' }}" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputBirthday">Date de naissance</label>
+                        <input type="date" id="inputBirthday" class="form-control" name="birthday"
+                               min="1920-01-01" max="2015-01-05" value="{{ data.birthday ?? '' }}" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputAddress">Adresse</label>
+                        <input type="text" id="inputAddress" class="form-control" name="address"
+                               placeholder="2 rue du clos" value="{{ data.address ?? '' }}" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPostalCode">Code Postal</label>
+                        <input type="text" id="inputPostalCode" class="form-control" name="postal_code"
+                               placeholder="45000" value="{{ data.postal_code ?? '' }}" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputCity">Ville</label>
+                        <input type="text" id="inputCity" class="form-control" name="city"
+                               placeholder="Orléans" value="{{ data.city ?? '' }}" required>
+                    </div>
+                    <input type="hidden" name="is_validate" value=0>
+                    <input type="hidden" name="status" value="">
+                    <div class="button">
+                        <button type="submit" class="button-dark mt-5">S'inscrire</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <div class="card col-md-4 offset-md-4 sm-6 h-25">
+            <div class="card-body">
+                <h5 class="card-title">Vous préférez le papier ?</h5>
+                <p class="card-text">Pas de problème, voici notre formulaire d'adhésion !</p>
+                <div class="link">
+                    <a href="/assets/Documents/registration_form.jpg"
+                       download="/assets/Documents/registration_form.jpg"
+                       title="Télécharger le formulaire PDF"
+                       class="button-light btn btn-primary">Télécharger</a>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

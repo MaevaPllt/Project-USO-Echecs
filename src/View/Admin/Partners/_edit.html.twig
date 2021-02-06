@@ -1,0 +1,39 @@
+<button type="button" class="btn button-light" data-toggle="modal"
+        data-target="#modalFormEdit{{ partnerEdit.id ?? partner.id }}">
+    Modifier
+</button>
+<div class="modal fade modalFormUpdate" id="modalFormEdit{{ partnerEdit.id ?? partner.id }}" tabindex="-1" role="dialog"
+     aria-labelledby="modalFormTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="modalFormLongTitle">Modifier un partenaire</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form id="partners-form" class="form" method="post" action="/admin/editPartner/{{ partner.id }}"
+                  enctype="multipart/form-data" novalidate>
+                <div class="d-flex flex-column modal-body">
+                    {% if errorsEdit is not empty %}
+                        <ul class="text-danger">
+                            {% for error in errorsEdit %}
+                                <li>{{ error }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                    <label for="name">Nom du partenaire</label>
+                    <input type="text" name="name" id="name" placeholder="Fédération Française d'Échecs"
+                           value="{{ partnerEdit.name ?? partner.name }}" required>
+                    <label for="url">Adresse internet (optionnel)</label>
+                    <input type="text" name="url" id="url" placeholder="www.siteweb.fr"
+                           value="{{ partnerEdit.url ?? partner.url }}">
+                    <label for="image">Logo ou image</label>
+                    <input type="file" name="image" id="image">
+                    <input type="hidden" name="id" value="{{ partnerEdit.id ?? partner.id }}">
+                    <button id="update" class="btn button-light">Modifier le partenaire</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

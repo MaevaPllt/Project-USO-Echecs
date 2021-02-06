@@ -1,0 +1,49 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}{{ parent() }} | Admin | Membres{% endblock %}
+
+{% block stylesheet %}
+    <link rel="stylesheet" href="/assets/css/membersAdmin.css">
+{% endblock %}
+
+{% block header %}
+    {% include 'includes/_adminNavbar.html.twig' %}
+{% endblock %}
+
+{% block content %}
+    <section>
+        <div class="text-center title">
+            <h1>Membres - administration</h1>
+        </div>
+        <div class="container d-flex flex-column">
+            <div class="container members-add">
+                {% include 'Admin/Members/_add.html.twig' %}
+            </div>
+            {% for member in members %}
+                <div class="container members_list">
+                    <div class="d-flex flex-wrap justify-content-between align-items-center">
+                        <div class="col-md-4 col-sm-8 offset-lg-1 members-link">
+                            {% include 'Admin/Members/_show.html.twig' %}
+                        </div>
+                        <div class="col-md-4 col-8 offset-lg-1 d-flex justify-content-around buttons">
+                            {% include 'Admin/Members/_edit.html.twig' %}
+                            {% include 'Admin/Members/_delete.html.twig' %}
+                        </div>
+                    </div>
+                    <hr>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+{% endblock %}
+
+{% block javascript %}
+{% if errorsAdd is not empty %}
+<script src="/assets/js/openModalAdd.js"></script>
+{% endif %}
+{% if errorsEdit is not empty %}
+<script>$(document).ready(function () {
+    $('#modalFormEdit{{ memberEdit.id }}').modal();
+});</script>
+{% endif %}
+{% endblock %}

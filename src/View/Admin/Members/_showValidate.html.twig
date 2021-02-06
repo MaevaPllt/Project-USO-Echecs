@@ -1,0 +1,43 @@
+<button type="button" class="members-link" data-toggle="modal"
+        data-target="#modalFormInfos{{ member.id }}">
+    {{ member.lastname|capitalize }} {{ member.firstname|capitalize }}
+</button>
+<div class="modal fade" id="modalFormInfos{{ member.id }}" tabindex="-1" role="dialog"
+     aria-labelledby="modalFormTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="modalFormLongTitle">
+                    {{ member.firstname|capitalize }} {{ member.lastname|capitalize }}
+                </h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="info-member">
+                <p>Prénom : {{ member.firstname|capitalize }}</p>
+                <p>Nom : {{ member.lastname|capitalize }}</p>
+                <p>Statut : {{ member.status|capitalize }}</p>
+                <p>Email : {{ member.email }}</p>
+                <p>Téléphone : {{ member.phone }}</p>
+                <p>Date de naissance : {{ member.birthday }}</p>
+                <p>Adresse : {{ member.address }}
+                    , {{ member.postal_code }} {{ member.city|capitalize }}</p>
+                <div class="buttons d-flex">
+                    <form action="/admin/acceptMembers" method="post">
+                        <input type="hidden" name="id" value="{{ member.id }}">
+                        <button class="btn button-light validate">Valider</button>
+                    </form>
+                    <button type="button" class="btn button-light" data-toggle="modal"
+                            data-target="#modalFormEdit{{ member.id }}">
+                        Modifier
+                    </button>
+                    <form action="/admin/refuseMember" method="post">
+                        <input type="hidden" name="id" value="{{ member.id }}">
+                        <button class="btn button-light delete">Refuser</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

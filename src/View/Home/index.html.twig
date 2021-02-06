@@ -1,0 +1,76 @@
+{% extends 'layout.html.twig' %}
+
+{% block stylesheet %}
+    <link rel="stylesheet" href="assets/css/home.css">
+{% endblock %}
+
+{% block content %}
+    <header class="d-flex text-center justify-content-around align-items-center home-header">
+        <h1 class="title-light">U.S. Orléans Échecs</h1>
+    </header>
+    <section class="container-fluid presentation">
+        <div class="row text-justify d-flex justify-content-center align-items-center no-gutters">
+            <div class="col-lg-4 col-sm-8 col-10 presentation-text">
+                <h2>Découvrez l'association !</h2>
+                <p>Installé à la Maison des sports, <strong>le club d'échecs d'Orléans</strong> propose des cours pour
+                    les jeunes et les adultes, des séances libres et de véritables cours pour ceux qui souhaitent se
+                    perfectionner et
+                    participer aux différentes compétitions.<br>
+                    Très actif et impliqué, le club participe à tous les
+                    challenges locaux. Les tournois se font en équipe ou en individuel, on peut aisément <strong>intégrer
+                        une
+                        équipe en fonction de son niveau et pouvoir évoluer grâce aux conseils des autres
+                        adhérents.</strong></p>
+            </div>
+            <div class="col-lg-4 col-sm-8 offset-lg-1 image-presentation">
+                <img src="assets/images/presentation_asso_accueil.jpg" alt="Association U.S.O. Échecs">
+            </div>
+        </div>
+    </section>
+    <section id="carousel-news" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#carousel-news" data-slide-to="0" class="active"></li>
+            <li data-target="#carousel-news" data-slide-to="1"></li>
+            <li data-target="#carousel-news" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+            {% for newsItem in news %}
+                <div class="carousel-item {% if loop.index0 == 0 %} active {% endif %} carousel-gradient">
+                    <img class="d-block w-100" src="/uploads/{{ newsItem.cover_image }}"
+                         alt="Background image">
+                    <div class="carousel-caption">
+                        <h3 class="title-light">{{ newsItem.title }}</h3>
+                        <p>{{ newsItem.excerpt }}</p>
+                        <a class="btn btn-primary button-dark" href="/news/show/{{ newsItem.id }}">En savoir plus</a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <a class="carousel-control-prev" href="#carousel-news" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Précèdent</span>
+        </a>
+        <a class="carousel-control-next" href="#carousel-news" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Suivant</span>
+        </a>
+    </section>
+    <section class="competitions">
+        <h2 class="title-light">Nos compétitions</h2>
+        <div class="container-fluid">
+            <div class="row justify-content-around">
+                {% for competition in competitions %}
+                    <div class="card col-12 col-sm-8 col-md-5 col-lg-3">
+                        <img src="/uploads/{{ competition.picture }}" alt="Image archive" class="card-img-top">
+                        <div class="card-body">
+                            <h3 class="card-title">{{ competition.name }}</h3>
+                            <p class="card-date icon-before-date">{{ competition.date|date("d / m / Y") }}</p>
+                            <p class="card-position icon-before-position">{{ competition.address }}</p>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            <a href="Competition/index"><button class="button-dark">En savoir plus</button></a>
+        </div>
+    </section>
+{% endblock %}

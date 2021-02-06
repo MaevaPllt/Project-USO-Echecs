@@ -1,0 +1,37 @@
+<button type="button" class="btn button-light" data-toggle="modal"
+        data-target="#modalFormAdd{{ partner.id }}">
+    Ajouter un partenaire
+</button>
+<div class="modal fade" id="modalFormAdd{{ partner.id }}" tabindex="-1" role="dialog"
+     aria-labelledby="modalFormTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="modalFormLongTitle">Ajouter un partenaire</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form id="partners-form" class="form" method="post" action="/admin/addPartnerAdmin" enctype="multipart/form-data">
+                <div class="d-flex flex-column modal-body">
+                    {% if errorsAdd is not empty %}
+                        <ul class="text-danger">
+                            {% for error in errorsAdd %}
+                                <li>{{ error }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                    <label for="name">Nom du partenaire</label>
+                    <input type="text" name="name" id="name" placeholder="Fédération Française d'Échecs"
+                           value="{{ partner.name ?? '' }}" required>
+                    <label for="url">Adresse internet (optionnel)</label>
+                    <input type="text" name="url" id="url" placeholder="www.siteweb.fr"
+                           value="{{ partner.url ?? '' }}">
+                    <label for="image">Logo ou image</label>
+                    <input type="file" name="image" id="image" required>
+                    <button id="update" class="btn button-light">Ajouter le partenaire</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

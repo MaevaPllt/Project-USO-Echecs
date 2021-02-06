@@ -1,0 +1,59 @@
+.partner-header {
+    height: var(--header-height);
+    background: linear-gradient(var(--darken-image), var(--darken-image)), url("../images/header_partner.jpg") no-repeat center fixed;
+    background-size: contain, cover;
+    width: 100%;
+}
+
+@media screen and (max-width: 550px) {
+    .partner-header h1 {
+        font-size: calc(var(--h2-font-size) * 2);
+    }
+}
+
+.partners img {
+    --width-logo-partners: 320px;
+    max-width: var(--width-logo-partners);
+}
+
+section {
+    padding-bottom: var(--spacing4);
+}
+
+.partners-title {
+    margin-top: var(--spacing5);
+    margin-bottom: var(--spacing4);
+}
+
+.partners-title h2 {
+    padding: var(--spacing);
+}
+
+.icon {
+    height: var(--icon-height);
+}
+
+.boardMembers-header {
+    height: var(--header-height);
+    background: linear-gradient(var(--darken-image), var(--darken-image)), url("../images/header_boardMembers.jpg") no-repeat center fixed;
+    background-size: contain, cover;
+    width: 100%;
+}
+
+.boardMembers-title {
+    margin-bottom: var(--spacing4);
+}
+
+.boardMembers-title h2 {
+    padding: var(--spacing);
+}
+
+.labels h3, .boardMembers p {
+    min-width: 25%;
+    text-align: center;
+}
+
+.boardMembers-section {
+    background: url("../images/chess_pattern.jpg");
+    padding-top: var(--spacing5);
+}

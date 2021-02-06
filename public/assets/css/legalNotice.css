@@ -1,0 +1,20 @@
+header {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: calc(var(--navbar-height) + var(--spacing4)) 0 var(--spacing4) 0;
+}
+
+section {
+    margin-bottom: var(--spacing4);
+}
+
+h2 {
+    margin: var(--spacing4) 0 var(--spacing3) 0;
+}
+
+p {
+    text-align: justify;
+}

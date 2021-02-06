@@ -1,0 +1,285 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}{{ parent() }} | Règles {% endblock %}
+
+{% block stylesheet %}
+    <link rel="stylesheet" href="/assets/css/rules.css">
+{% endblock %}
+
+{% block content %}
+    <header class="d-flex text-center justify-content-around align-items-center rules-header">
+        <h1 class="title-light">Règles du jeu</h1>
+    </header>
+    <body>
+    <section class="rules-section">
+        <div class="d-flex justify-content-center rules-title">
+            <img class="icon" src="/assets/images/chess_icon/bishop.svg" alt="Pièce d'échec">
+            <h2 class="title-light">Apprendre les règles du jeu d'échecs</h2>
+            <img class="icon" src="/assets/images/chess_icon/bishop.svg" alt="Pièce d'échec">
+        </div>
+        <div class="row mx-0 text-justify d-flex justify-content-center align-items-center">
+            <div class="col-lg-4 col-sm-8 col-10 presentation-text">
+                <p><span>Vous souhaitez apprendre les règles du jeu d'échecs ?</span> Le jeu d’échecs est un jeu
+                    fascinant qui offre de nombreux bénéfices pour les <span>adultes comme pour les enfants</span>.
+                    Les règles des échecs sont assez faciles et rapides à apprendre, et elles vous ouvriront des
+                    possibilités presque infinies en termes de <span>stratégie et de réflexion</span>. <br/>
+                    À vous de jouer !
+                </p>
+            </div>
+            <div class="col-lg-5 col-sm-8 offset-lg-1 presentation-rules d-flex justify-content-center">
+                <img class="img-drawing" src="/assets/images/presentation_rules.jpg" alt="Le jeu d'échec"/>
+            </div>
+        </div>
+    </section>
+    <section class="equipment-section">
+        <div class="d-flex justify-content-around rules-title">
+            <h3 class="title-dark">Le matériel pour jouer aux échecs</h3>
+        </div>
+        </div>
+        <article class="little-section material-section">
+            <div class="row mx-0 text-justify d-flex justify-content-around align-items-center">
+                <div class="col-lg-5 col-sm-8 col-10 presentation-text">
+                    <h4 class="title-size"><span>Les pièces</span></h4>
+                    <p>
+                        <span>Pour jouer aux échecs, il vous faudra :</span> <br/>
+                    <ul>
+                        <li>
+                            <span>Un échiquier</span> : un échiquier est composé de 64 cases : 32 cases claires (appelées
+                            les
+                            cases blanches) et 32 cases foncées (appelées les cases noires). Les cases d’un échiquier
+                            sont numérotées, il y a 8
+                            colonnes (de A à H) et 8 rangées (de 1 à 8).
+                        </li>
+                        <li>
+                            <span>Des pièces</span> : chaque joueur dispose de 16 pièces au début de la partie. L’un des
+                            joueurs
+                            joue avec les pièces claires (on dit qu’il a les Blancs), l’autre avec les pièces sombres
+                            (on
+                            dit
+                            qu’il a les Noirs).
+                        </li>
+                        <li>
+                            <span>Une pendule</span> : les pendules sont utilisées lors des compétitions pour limiter les
+                            temps
+                            de réflexion de chaque joueur.
+                        </li>
+                    </ul>
+                    </p>
+                </div>
+                <div class="col-md-4 col-sm-8 presentation-rules d-flex justify-content-center">
+                    <img class="img-drawing" src="/assets/images/chessboard_rules.png" alt="L'échiquier des échecs"/>
+                </div>
+            </div>
+            </div>
+        </article>
+        <article class="little-section material-section">
+            <div class="row mx-0 text-justify d-flex justify-content-around align-items-center">
+                <div class="col-lg-10 col-sm-8 col-10 presentation-text">
+                    <h4 class="title-size"><span>La disposition</span></h4>
+                    <p>
+                        En début de partie, chaque joueur dispose de 16 pièces : <span>un Roi, une Dame, deux Tours,
+                        deux Fous, deux Cavaliers et huit pions</span>. <br/>
+                        Au début de la partie, les pièces sont toujours placées de la même façon :
+                    <ul>
+                        <li>Chaque joueur place donc une Tour à chaque coin de l’échiquier.</li>
+                        <li>A côté des Tours, il y a deux Cavaliers.</li>
+                        <li>Au milieu de l'échiquier, il y a le Roi et la Dame, la Dame blanche sur la case blanche, la
+                            Dame
+                            noire sur la case noire.
+                        </li>
+                        <li>On place les Fous à côté du Roi et de la Dame.</li>
+                        <li>Les pions sont des soldats qui défendent le Roi et la Dame : on met donc les huit pions
+                            devant
+                            les
+                            autres pièces, sur la deuxième rangée.
+                        </li>
+                        <li>
+                            Les deux joueurs jouent à tour de rôle en déplaçant une seule de leurs pièces. Si une pièce
+                            se
+                            déplace
+                            sur une case occupée par une pièce adverse, celle-ci est prise et enlevée de l’échiquier.
+                            Une
+                            pièce ne
+                            peut pas se placer sur une case occupée par une pièce de son propre camp. Seul le Cavalier
+                            peut
+                            sauter
+                            au-dessus des autres pièces.
+                        </li>
+                    </ul>
+                    </p>
+                </div>
+            </div>
+        </article>
+    </section>
+    <section class="shifting-section">
+        <h3 class="title-light">Le déplacement des pièces</h3>
+        <article class="little-section">
+            <div class="row mx-0 text-justify d-flex justify-content-around align-items-center">
+                <div class="col-lg-5 col-sm-8 col-10 presentation-text">
+
+                    <h4 class="title-size"> Le déplacement de la Tour</h4>
+                    <p>
+                        La Tour se déplace <span>horizontalement ou verticalement</span>, d’autant de cases qu’elle
+                        veut.
+                        La Tour ne peut pas aller sur une case occupée par une pièce de son camp, ni sauter au-dessus
+                        d’une autre pièce. La Tour peut prendre une pièce adverse en allant sur la case occupée par
+                        cette pièce.
+                    </p>
+                </div>
+                <div class="col-lg-3 col-sm-6 presentation-rules d-flex justify-content-center">
+                    <img class="img-drawing" src="/assets/images/tower_rules.png" alt="La Tour"/>
+                </div>
+            </div>
+        </article>
+        <article class="little-section">
+            <div class="row mx-0 text-justify d-flex justify-content-around align-items-center">
+                <div class="col-lg-5 col-sm-8 col-10 presentation-text">
+                    <h4 class="title-size"> Le déplacement du Fou</h4>
+                    <p>
+                        Le Fou se déplace en <span>diagonale</span>, d’autant de cases qu’il veut. Chaque joueur dispose
+                        au départ d’un Fou sur une case noire et d’un Fou sur une case blanche. Ces Fous ne pourront
+                        jamais
+                        changer de couleur durant toute la partie.
+                    </p>
+                </div>
+                <div class="col-lg-3 col-sm-6 presentation-rules d-flex justify-content-center">
+                    <img class="img-drawing" src="/assets/images/mad_rules.png" alt="Le Fou"/>
+                </div>
+            </div>
+        </article>
+        <article class="little-section">
+            <div class="row mx-0 text-justify d-flex justify-content-around align-items-center">
+                <div class="col-lg-5 col-sm-8 col-10 presentation-text">
+                    <h4 class="title-size"> Le déplacement de la Dame</h4>
+                    <p>
+                        La Dame se déplace comme la Tour et le Fou : elle peut donc se déplacer <span>verticalement,
+                    horizontalement et en diagonale</span>, d’autant de cases qu’elle veut (sans bien sûr pouvoir passer
+                        au-dessus d’une autre pièce ou pouvoir prendre une pièce de son propre camp). Comme c’est la
+                        pièce
+                        la plus mobile, c’est aussi la pièce qui a la plus grande valeur.
+                    </p>
+                </div>
+                <div class="col-lg-3 col-sm-6 presentation-rules d-flex justify-content-center">
+                    <img class="img-drawing" src="/assets/images/queen_rules.png" alt="La Dame"/>
+                </div>
+            </div>
+        </article>
+        <article class="little-section">
+            <div class="row mx-0 text-justify d-flex justify-content-around align-items-center">
+                <div class="col-lg-5 col-sm-8 col-10 presentation-text">
+                    <h4 class="title-size"> Le déplacement du Roi</h4>
+                    <p>
+                        Le Roi se déplace d’<span>une seule case, dans toutes les directions</span>. Lorsqu’un Roi est
+                        attaqué
+                        par une pièce adverse, on dit qu’il est en échec. Un joueur n’a pas le droit de laisser son Roi
+                        en
+                        échec. Il n’a pas non plus le droit de déplacer son Roi sur une case où celui-ci sera attaqué
+                        (donc en échec).
+                    </p>
+                </div>
+                <div class="col-lg-3 col-sm-6 presentation-rules d-flex justify-content-center">
+                    <img class="img-drawing" src="/assets/images/king_rules.png" alt="Le Roi"/>
+                </div>
+            </div>
+        </article>
+        <article class="little-section">
+            <div class="row mx-0 text-justify d-flex justify-content-around align-items-center">
+                <div class="col-lg-5 col-sm-8 col-10 presentation-text">
+                    <h4 class="title-size"> Le déplacement du Cavalier</h4>
+                    <p>
+                        Le cavalier effectue un déplacement en <span>« L », tourné dans n’importe quel sens</span>. On
+                        peut
+                        remarquer qu’un Cavalier qui se trouve sur une case blanche ne peut, au coup suivant, aller que
+                        sur
+                        des cases noires (et inversement). Le Cavalier est la seule pièce qui peut sauter au-dessus des
+                        autres
+                        pièces (les siennes et celles de l’adversaire).
+                    </p>
+                </div>
+                <div class="col-lg-3 col-sm-6 presentation-rules d-flex justify-content-center">
+                    <img class="img-drawing" src="/assets/images/rider_rules.png" alt="Le Cavalier"/>
+                </div>
+            </div>
+        </article>
+        <article class="little-section">
+            <div class="row mx-0 text-justify d-flex justify-content-around align-items-center">
+                <div class="col-lg-5 col-sm-8 col-10 presentation-text">
+                    <h4 class="title-size"> Le déplacement du Pion</h4>
+                    <p>
+                        Le pion est la seule pièce qui ne peut pas reculer. C’est aussi la seule pièce qui ne prend pas
+                        comme
+                        elle avance. Les pions avancent en effet d’<span>une case sur la même colonne</span>, si la case
+                        située
+                        devant eux
+                        est libre. Ils prennent sur l’une ou l’autre des deux cases situées devant eux en diagonale. Un
+                        pion
+                        situé sur sa rangée de départ peut avancer de deux cases (mais il n’est pas obligé).
+                    </p>
+                </div>
+                <div class="col-lg-3 col-sm-6 presentation-rules d-flex justify-content-center">
+                    <img class="img-drawing" src="/assets/images/pawn_rules.png" alt="Le Pion"/>
+                </div>
+            </div>
+        </article>
+    </section>
+    <section class="progress-section">
+        <h3>Le déroulement de la partie</h3>
+        <div class="row mx-0 text-justify d-flex justify-content-center align-items-center">
+            <div class="col-lg-10 col-sm-8 col-10 presentation-text">
+                <h4 class="title-size"><span>Le trait</span></h4>
+                <p>
+                    Le joueur ayant les Blancs commence, puis chaque joueur effectue un coup à tour de rôle. On dit du
+                    joueur qui doit jouer qu’il a <span>le trait</span>.
+                </p>
+                <div>
+                    <h4 class="title-size"><span>L'échec</span></h4>
+                    <p>
+                        Lorsqu’un Roi est attaqué par une pièce adverse, on dit qu’il est en <span>échec</span>. Un
+                        joueur n’a
+                        pas le droit de laisser son Roi en échec. Il doit parer l’échec en prenant la pièce qui attaque
+                        le Roi,
+                        en déplaçant son Roi ou en interposant une pièce entre son Roi et l’attaquant. Tout autre coup
+                        est
+                        illégal.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="title-size"><span>L'échec et Mat</span></h4>
+                    <p>
+                        Le but du jeu est de mettre le Roi du joueur adverse en échec de telle façon que l’échec ne
+                        puisse pas
+                        être paré : on dit que ce joueur est <span>échec et mat</span>.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="title-size"><span>Le résultat de la partie</span></h4>
+                    <p>
+                        Une partie d’échec peut avoir <span>trois résultats</span> : le gain des Blancs, le gain des
+                        Noirs ou un
+                        match nul.
+                        Une partie est nulle dans les cas suivants :
+                    <ul>
+                        <li>Par accord mutuel entre les deux joueurs. Le nul par accord mutuel peut-être soumis à des
+                            conditions
+                            dans certains tournois, comme par exemple de n’être autorisé qu’après 20 coups.
+                        </li>
+                        <li>Si l’un des joueurs n’a aucun coup légal mais que son Roi n’est pas en échec. On dit que ce
+                            joueur est pat.
+                        </li>
+                        <li>En cas de matériel insuffisant pour permettre le mat. C’est le cas par exemple s’il ne reste
+                            que
+                            les deux Rois sur l’échiquier, ou dans les positions avec Roi contre Roi + un Fou ou Roi
+                            contre
+                            Roi + un Cavalier.
+                        </li>
+                    </ul>
+                    </p>
+                </div>
+                <div class="col-lg-4 col-sm-8 offset-lg-4 presentation-rules d-flex justify-content-center">
+                    <img class="checkmate" src="/assets/images/checkmate.jpg" alt="Échec et mat"/>
+                </div>
+            </div>
+        </div>
+    </section>
+    </body>
+{% endblock %}

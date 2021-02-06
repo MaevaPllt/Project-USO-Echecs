@@ -1,0 +1,170 @@
+.icon {
+    height: var(--icon-height);
+}
+
+.form-title, .title-card, .find-us {
+    padding-top: var(--spacing5);
+    margin-bottom: var(--spacing4);
+    display: flex;
+    justify-content: center;
+}
+
+.contact-header {
+    height: var(--header-height);
+    background: linear-gradient(var(--darken-image), var(--darken-image)), url("../images/header_contact.jpg") no-repeat center fixed;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact h1 {
+    font-size : var(--h1-font-size);
+    font-weight: var(--bold);
+}
+
+.contact-card-title {
+    padding: var(--spacing);
+}
+
+.contact-informations {
+    background: url("../images/chess_pattern.jpg");
+    padding-bottom: var(--spacing4);
+}
+
+.card img {
+    height: calc(var(--icon-height)*4);
+}
+
+.contact-card {
+    --card-height: 360px;
+    --card-width: 300px;
+    padding: var(--spacing2);
+    margin: var(--spacing2);
+    height: var(--card-height);
+    width: var(--card-width);
+}
+
+.card-row {
+    --column-gap: 80px;
+    --row-gap: 40px;
+    justify-content: center;
+    column-gap: var(--column-gap);
+    row-gap: var(--row-gap);
+    padding-bottom: var(--spacing3);
+}
+
+.card-body {
+    display: grid;
+}
+
+.card-title {
+    font-weight: var(--bold);
+}
+
+.form-contact {
+    background-color: var(--main-color);
+    display: flex;
+    justify-content: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding-right: var(--spacing2);
+    padding-left: var(--spacing2);
+    margin-bottom: var(--spacing3);
+}
+
+.contact-form-title {
+    padding: var(--spacing);
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+    margin-bottom: var(--spacing4);
+}
+
+input, textarea, select, .input-group {
+    margin-bottom: var(--spacing3);
+}
+
+.selected-subject {
+    margin-bottom: 0;
+}
+
+.form-control .custom-select{
+    border: none;
+    padding: var(--spacing);
+    border-bottom: 2px solid var(--light);
+    background-color: var(--light-transparent);
+    border-radius: var(--border-radius) var(--border-radius);
+    color: var(--dark);
+}
+
+.form-control:focus,
+.custom-select:focus {
+    border-color: transparent;
+    box-shadow: none;
+    border-bottom: 3px solid var(--highlight);
+}
+
+label {
+    margin-bottom: var(--spacing2);
+    color: var(--light);
+}
+
+
+.errors {
+    color: var(--highlight);
+}
+
+
+.map-schedule {
+    margin-bottom: var(--spacing4);
+}
+
+.schedule-title {
+ padding: var(--spacing);
+}
+
+.row-find-us {
+    align-items: center;
+    justify-content: center;
+    --column-gap: 150px;
+    --row-gap: 40px;
+    row-gap: var(--row-gap);
+    column-gap: var(--column-gap);
+}
+
+.schedule h3 {
+    padding-bottom: var(--spacing2);
+    font-weight: var(--bold);
+}
+
+.schedule {
+    flex-direction: column;
+    justify-content: center;
+    padding-left: var(--spacing4);
+}
+
+.map, .schedule {
+    --map-height: 400px;
+    --map-width: 500px;
+    height: var(--map-height);
+    width: var(--map-width);
+    margin: var(--spacing3);
+    justify-content: center;
+    background-color: transparent;
+    border: none;
+}
+
+iframe {
+    height: 100%;
+}
+
+small a, small a:hover {
+    color: var(--dark);
+}
